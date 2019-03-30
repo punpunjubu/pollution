@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Navbar from './components/Navbar/Navbar.vue'
 import Esp from './components/esp/esp.vue'
 import Cyclone from './components/cyclone/cyclone.vue'
+import FacebookLogin from './components/facebooklogin/facebooklogin.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -16,6 +17,7 @@ export default new Router({
       path: '/',
       component: Navbar,
       children: [
+        { path: '/login', component: FacebookLogin },
         { path: '/esp', component: Esp },
         { path: '/cyclone', component: Cyclone }
       ]

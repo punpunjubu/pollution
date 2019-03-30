@@ -43,7 +43,7 @@
         </template>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar class="navbar" :clipped-left="$vuetify.breakpoint.lgAndUp" dark app color="red darken-1" fixed>
+    <v-toolbar class="navbar" :clipped-left="$vuetify.breakpoint.lgAndUp" dark app color="#A9A9A9" fixed>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title class="white--text">Title</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -108,7 +108,7 @@ export default {
 </script>
 <style>
 .menu_active {
-  color: #B71C1C;
+  color: #A9A9A9;
 }
 .navbar .btn--icon div.btn__content:before {
   width: 36px !important;

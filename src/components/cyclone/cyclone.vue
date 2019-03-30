@@ -77,232 +77,231 @@
                         <v-container grid-list-xs,sm,md,lg,xl>
                           <v-layout row wrap>
                             <v-flex xs12 sm12 md12 lg12 xl12>
-                              <v-btn class="widthka" color="#FFCDD2" @click="testpost()">testpost</v-btn>
+                              <v-btn class="widthka" color="#C8C8C8" @click="heightefficiency1(); type_id = 1">Height Efficiency 1</v-btn>
                             </v-flex>
                             <v-flex xs12 sm12 md12 lg12 xl12>
-                              <v-btn class="widthka" color="#FFCDD2" @click="heightefficiency1()">Height Efficiency 1</v-btn>
+                              <v-btn class="widthka" color="#909090" @click="heightefficiency2(); type_id = 2">Height Efficiency 2</v-btn>
                             </v-flex>
                             <v-flex xs12 sm12 md12 lg12 xl12>
-                              <v-btn class="widthka" color="#FF8A80" @click="heightefficiency2()">Height Efficiency 2</v-btn>
+                              <v-btn class="widthka" color="#696969" @click="conventional3(); type_id = 3">Conventional 3</v-btn>
                             </v-flex>
                             <v-flex xs12 sm12 md12 lg12 xl12>
-                              <v-btn class="widthka" color="#FF5252" @click="conventional3()">Conventional 3</v-btn>
+                              <v-btn class="widthka" color="#505050" @click="conventional4(); type_id = 4">Conventional 4</v-btn>
                             </v-flex>
                             <v-flex xs12 sm12 md12 lg12 xl12>
-                              <v-btn class="widthka" color="#FF1744" @click="conventional4()">Conventional 4</v-btn>
+                              <v-btn class="widthka" color="#282828" @click="heighthroughput5(); type_id = 5">Heigh Throughput 5</v-btn>
                             </v-flex>
                             <v-flex xs12 sm12 md12 lg12 xl12>
-                              <v-btn class="widthka" color="#D50000" @click="heighthroughput5()">Heigh Throughput 5</v-btn>
-                            </v-flex>
-                            <v-flex xs12 sm12 md12 lg12 xl12>
-                              <v-btn class="widthka" color="#B71C1C" @click="heighthroughput6()">Heigh Throughput 6</v-btn>
+                              <v-btn class="widthka" color="#000000" @click="heighthroughput6(); type_id = 6">Heigh Throughput 6</v-btn>
                             </v-flex>
                           </v-layout>
                         </v-container>
                       </v-flex>
                       <v-flex xs12 sm12 md6 lg6 xl6>
-                        <v-container grid-list-xs,sm,md,lg,xl>
-                          <v-layout row wrap>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <h3>
-                                Please input diameter:
-                              </h3>
-                            </v-flex>
-                            <v-flex xs8 sm8 md8 xl8 lg8>
-                              <v-text-field
-                              ref="diameter"
-                              v-model="diameter"
-                              outline
-                              label="Diameter D"
-                              type="number"
-                              ></v-text-field>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <h3>
-                                Bodydiameter ratio:
-                              </h3>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <v-text-field
-                              ref="bodydiameter"
-                              v-model="bodydiameter"
-                              outline
-                              label="Bodydiameter D/D"
-                              type="number"
-                              ></v-text-field>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <v-text-field
-                              ref="D"
-                              v-model="D"
-                              outline
-                              label="D"
-                              type="number"
-                              ></v-text-field>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <h3>
-                                Height of Inlet ratio:
-                              </h3>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <v-text-field
-                              ref="height_inlet"
-                              v-model="height_inlet"
-                              outline
-                              label="  Height of Inlet H/D"
-                              type="number"
-                              ></v-text-field>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <v-text-field
-                              ref="H"
-                              v-model="H"
-                              outline
-                              label="H"
-                              type="number"
-                              ></v-text-field>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <h3>
-                                Width of Inlet ratio:
-                              </h3>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <v-text-field
-                              ref="width_inlet"
-                              v-model="width_inlet"
-                              outline
-                              label="Width of Inlet W/D"
-                              type="number"
-                              ></v-text-field>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <v-text-field
-                              ref="W"
-                              v-model="W"
-                              outline
-                              label="W"
-                              type="number"
-                              ></v-text-field>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <h3>
-                                Diameter of Gas ratio:
-                              </h3>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <v-text-field
-                              ref="diameter_gas"
-                              v-model="diameter_gas"
-                              outline
-                              label="Diameter of Gas De/D"
-                              type="number"
-                              ></v-text-field>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <v-text-field
-                              ref="De"
-                              v-model="De"
-                              outline
-                              label="De"
-                              type="number"
-                              ></v-text-field>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <h3>
-                                Length of Vortex Finder ratio:
-                              </h3>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <v-text-field
-                              ref="length_vortex"
-                              v-model="length_vortex"
-                              outline
-                              label="Length of vortex Finder Lb/D"
-                              type="number"
-                              ></v-text-field>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <v-text-field
-                              ref="S"
-                              v-model="S"
-                              outline
-                              label="S"
-                              type="number"
-                              ></v-text-field>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <h3>
-                                Length of Body ratio:
-                              </h3>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <v-text-field
-                              ref="length_body"
-                              v-model="length_body"
-                              outline
-                              label="Length of Body Lb/D"
-                              type="number"
-                              ></v-text-field>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <v-text-field
-                              ref="Lb"
-                              v-model="Lb"
-                              outline
-                              label="Lb"
-                              type="number"
-                              ></v-text-field>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <h3>
-                                Length of Cone ratio:
-                              </h3>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <v-text-field
-                              ref="length_cone"
-                              v-model="length_cone"
-                              outline
-                              label="Length of Cone Lc/D"
-                              type="number"
-                              ></v-text-field>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <v-text-field
-                              ref="Lc"
-                              v-model="Lc"
-                              outline
-                              label="Lc"
-                              type="number"
-                              ></v-text-field>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <h3>
-                                Diameter of Dust ratio:
-                              </h3>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <v-text-field
-                              ref="diameter_dust"
-                              v-model="diameter_dust"
-                              outline
-                              label="Diameter of Dust Outlet Dd/D"
-                              type="number"
-                              ></v-text-field>
-                            </v-flex>
-                            <v-flex xs4 sm4 md4 xl4 lg4>
-                              <v-text-field
-                              ref="Dd"
-                              v-model="Dd"
-                              outline
-                              label="Dd"
-                              type="number"
-                              ></v-text-field>
-                            </v-flex>
-                          </v-layout>
-                        </v-container>
+                        <v-form>
+                          <v-container grid-list-xs,sm,md,lg,xl>
+                            <v-layout row wrap>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <label>
+                                  Please input diameter:
+                                </label>
+                              </v-flex>
+                              <v-flex xs8 sm8 md8 xl8 lg8>
+                                <v-text-field
+                                ref="diameter"
+                                v-model="diameter"
+                                outline
+                                label="Diameter D"
+                                type="number"
+                                ></v-text-field>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <label>
+                                  Body Diameter ratio:
+                                </label>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <v-text-field
+                                ref="bodydiameter"
+                                v-model="bodydiameter"
+                                outline
+                                label="Bodydiameter D/D"
+                                type="number"
+                                ></v-text-field>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <v-text-field
+                                ref="D"
+                                v-model="D"
+                                outline
+                                label="D"
+                                type="number"
+                                ></v-text-field>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <label>
+                                  Height of Inlet ratio:
+                                </label>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <v-text-field
+                                ref="height_inlet"
+                                v-model="height_inlet"
+                                outline
+                                label="  Height of Inlet H/D"
+                                type="number"
+                                ></v-text-field>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <v-text-field
+                                ref="H"
+                                v-model="H"
+                                outline
+                                label="H"
+                                type="number"
+                                ></v-text-field>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <label>
+                                  Width of Inlet ratio:
+                                </label>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <v-text-field
+                                ref="width_inlet"
+                                v-model="width_inlet"
+                                outline
+                                label="Width of Inlet W/D"
+                                type="number"
+                                ></v-text-field>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <v-text-field
+                                ref="W"
+                                v-model="W"
+                                outline
+                                label="W"
+                                type="number"
+                                ></v-text-field>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <label>
+                                  Diameter of Gas ratio:
+                                </label>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <v-text-field
+                                ref="diameter_gas"
+                                v-model="diameter_gas"
+                                outline
+                                label="Diameter of Gas De/D"
+                                type="number"
+                                ></v-text-field>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <v-text-field
+                                ref="De"
+                                v-model="De"
+                                outline
+                                label="De"
+                                type="number"
+                                ></v-text-field>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <label>
+                                  Length of Vortex Finder ratio:
+                                </label>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <v-text-field
+                                ref="length_vortex"
+                                v-model="length_vortex"
+                                outline
+                                label="Length of vortex Finder Lb/D"
+                                type="number"
+                                ></v-text-field>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <v-text-field
+                                ref="S"
+                                v-model="S"
+                                outline
+                                label="S"
+                                type="number"
+                                ></v-text-field>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <label>
+                                  Length of Body ratio:
+                                </label>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <v-text-field
+                                ref="length_body"
+                                v-model="length_body"
+                                outline
+                                label="Length of Body Lb/D"
+                                type="number"
+                                ></v-text-field>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <v-text-field
+                                ref="Lb"
+                                v-model="Lb"
+                                outline
+                                label="Lb"
+                                type="number"
+                                ></v-text-field>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <label>
+                                  Length of Cone ratio:
+                                </label>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <v-text-field
+                                ref="length_cone"
+                                v-model="length_cone"
+                                outline
+                                label="Length of Cone Lc/D"
+                                type="number"
+                                ></v-text-field>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <v-text-field
+                                ref="Lc"
+                                v-model="Lc"
+                                outline
+                                label="Lc"
+                                type="number"
+                                ></v-text-field>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <label>
+                                  Diameter of Dust ratio:
+                                </label>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <v-text-field
+                                ref="diameter_dust"
+                                v-model="diameter_dust"
+                                outline
+                                label="Diameter of Dust Outlet Dd/D"
+                                type="number"
+                                ></v-text-field>
+                              </v-flex>
+                              <v-flex xs4 sm4 md4 xl4 lg4>
+                                <v-text-field
+                                ref="Dd"
+                                v-model="Dd"
+                                outline
+                                label="Dd"
+                                type="number"
+                                ></v-text-field>
+                              </v-flex>
+                            </v-layout>
+                          </v-container>
+                        </v-form>
                       </v-flex>
                     </v-layout>
                   </v-container>
@@ -319,7 +318,7 @@
         >
         </v-progress-linear>
         <v-flex xs12 md12 lg12 xl12 sm12>
-          <v-card ref="form" color="grey">
+          <v-card ref="form" >
             <v-layout row wrap>
               <v-flex xs12 md12 lg12 xl12 sm12>
                 <v-card-text>
@@ -391,9 +390,9 @@
                     <v-container grid-list-xs,sm,md,lg,xl>
                       <v-layout row wrap>
                         <v-flex xs4 sm4 md4 lg4 xl4>
-                          <header class="dis">Number of Effective turns (Ne)</header>
+                          <span class="fontspan">Number of Effective turns (Ne)</span>
                         </v-flex>
-                        <v-flex xs8 sm8 md8 lg6 xl8>
+                        <v-flex xs8 sm8 md8 lg8 xl8>
                           <v-text-field
                           ref="ne"
                           v-model="ne"
@@ -457,7 +456,7 @@
                           ></v-text-field>
                         </v-flex>
                         <v-flex xs4 sm4 md4 lg4 xl4>
-                          <header class="dis">Diameter of Particle Collection 50% (dpc)</header>
+                          <span class="fontspan">Diameter of Particle Collection 50% (dpc)</span>
                         </v-flex>
                         <v-flex xs8 sm8 md8 lg8 xl8>
                           <v-text-field
@@ -528,6 +527,7 @@
                   </v-form>
                 </v-card-text>
               </v-flex>
+              <v-btn color="primary" @click="testsave();">บันทึก</v-btn>
             </v-layout>
           </v-card>
         </v-flex>
@@ -595,10 +595,10 @@
                         <v-flex xs12 sm12 md12 lg12 xl12>
                           <v-data-table
                           :headers="headers"
-                          :items="mama"
+                          :items="data_cal"
                           class="elevation-1"
                           >
-                          <template slot="mama" slot-scope="props">
+                          <template slot="data_cal" slot-scope="props">
                             <td class="text-xs-left">{{ props.index }}</td>
                             <td class="text-xs-left">{{ props.item.sizemi }}</td>
                             <td class="text-xs-left">{{ props.item.sizema }}</td>
@@ -616,6 +616,7 @@
                       </v-layout>
                     </v-container>
                   </v-form>
+                  <pre>{{data_cal}}</pre>
                 </v-card-text>
               </v-flex>
             </v-layout>
@@ -629,6 +630,7 @@
 export default {
   data () {
     return {
+      type_id: null,
       diameter: null,
       bodydiameter: null,
       height_inlet: null,
@@ -710,21 +712,7 @@ export default {
       ],
       data_cal: [{}],
       cal_arttribute: {},
-      mama: null
-    }
-  },
-  computed: {
-    numberOfEffectiveTurns_cal () {
-      return [this.H, this.Lb, this.Lc].join()
-    },
-    gasInletvelocity () {
-      return this.flow_rate
-    },
-    diameterOfParticleCollectionWith50PercentEfficiency () {
-      return [this.gas_viscosity, this.density_particle, this.gas_density].join()
-    },
-    pressuredrop () {
-      return this.k
+      mama: []
     }
   },
   methods: {
@@ -845,6 +833,23 @@ export default {
       this.length_cone = 2.0
       this.diameter_dust = 0.4
     },
+    numberOfEffectiveTurns_cal_fn () {
+      this.ne = (1 / this.H) * (this.Lb + (this.Lc / 2))
+    },
+    gasInletvelocity_fn () {
+      this.vi = this.flow_rate / (this.H * this.W)
+      this.gas_residence_time = (2 * Math.PI * (this.diameter / 2) * this.ne) / this.vi
+    },
+    diameterOfParticleCollectionWith50PercentEfficiency_fn () {
+      this.dpc = (1000000 * Math.sqrt((9 * this.gas_viscosity * this.W) / (2 * Math.PI * 60 * this.ne * this.vi * (this.density_particle - this.gas_density)))).toFixed(1)
+      this.Vt = this.W / this.gas_residence_time
+    },
+    pressuredrop_fn () {
+      this.Hv = (this.k * this.H * this.W) / (Math.pow(this.De, 2))
+      this.deltaP = 0.5 * this.gas_density * Math.pow((this.vi / 60), 2) * this.Hv
+      this.wf = (this.flow_rate * this.deltaP) / 60
+      this.water = (this.deltaP * 0.00402).toFixed(1)
+    },
     testpost () {
       alert('ggg')
       var textSource = { ne: 6, q: 6, vi: 6 }
@@ -856,6 +861,65 @@ export default {
           alert('maieieie')
         }
       })
+    },
+    testget () {
+      alert('ggg')
+      this.axios.get(process.env.VUE_APP_PATH + '/auth/facebook').then((response) => {
+        // eslint-disable-next-line no-console
+        console.log('response', response)
+      })
+    },
+    testsave () {
+      if (confirm('Are you sure you want to save?')) {
+        var textSource = {
+          type_id: this.type_id,
+          diameter: this.diameter,
+          d: this.D,
+          h: this.H,
+          w: this.W,
+          de: this.De,
+          lv: this.S,
+          lb: this.Lb,
+          lc: this.Lc,
+          dd: this.Dd,
+          ne: this.ne,
+          q: this.flow_rate,
+          vi: this.vi,
+          delta_t: this.gas_residence_time,
+          u: this.gas_viscosity,
+          pp: this.density_particle,
+          pg: this.gas_density,
+          dpc: this.dpc,
+          vpt: this.Vt,
+          k: this.k,
+          hv: this.Hv,
+          delta_p: this.deltaP,
+          winput: this.wf,
+          delta_h2o: this.water
+        }
+        this.axios.post(process.env.VUE_APP_PATH + '/cyclone', textSource).then((response) => {
+          if (response.data['status'] === 'successful') {
+            alert('eieie')
+          } else {
+            // console.log('response', response)
+            alert('maieieie')
+          }
+        })
+      }
+    }
+  },
+  computed: {
+    numberOfEffectiveTurns_cal () {
+      return [this.H, this.Lb, this.Lc].join()
+    },
+    gasInletvelocity () {
+      return this.flow_rate
+    },
+    diameterOfParticleCollectionWith50PercentEfficiency () {
+      return [this.gas_viscosity, this.density_particle, this.gas_density].join()
+    },
+    pressuredrop () {
+      return this.k
     }
   },
   watch: {
@@ -868,6 +932,10 @@ export default {
       this.Lb = this.diameter * this.length_body
       this.Lc = this.diameter * this.length_cone
       this.Dd = this.diameter * this.diameter_dust
+      this.numberOfEffectiveTurns_cal_fn()
+      this.gasInletvelocity_fn()
+      this.diameterOfParticleCollectionWith50PercentEfficiency_fn()
+      this.pressuredrop_fn()
     },
     numberOfEffectiveTurns_cal () {
       this.ne = (1 / this.H) * (this.Lb + (this.Lc / 2))
@@ -875,10 +943,13 @@ export default {
     gasInletvelocity () {
       this.vi = this.flow_rate / (this.H * this.W)
       this.gas_residence_time = (2 * Math.PI * (this.diameter / 2) * this.ne) / this.vi
+      this.diameterOfParticleCollectionWith50PercentEfficiency_fn()
+      this.pressuredrop_fn()
     },
     diameterOfParticleCollectionWith50PercentEfficiency () {
       this.dpc = (1000000 * Math.sqrt((9 * this.gas_viscosity * this.W) / (2 * Math.PI * 60 * this.ne * this.vi * (this.density_particle - this.gas_density)))).toFixed(1)
       this.Vt = this.W / this.gas_residence_time
+      this.pressuredrop_fn()
     },
     pressuredrop () {
       this.Hv = (this.k * this.H * this.W) / (Math.pow(this.De, 2))
@@ -896,5 +967,14 @@ export default {
 }
 .v-text {
   position: relative;
+}
+.v-btn__content {
+  color: white;
+}
+.application {
+  font-size: 1.3rem;
+}
+.fontspan {
+  font-weight: 600;
 }
 </style>
