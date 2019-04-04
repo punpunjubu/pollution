@@ -4,7 +4,9 @@ import Router from 'vue-router'
 import Navbar from './components/Navbar/Navbar.vue'
 import Esp from './components/esp/esp.vue'
 import Cyclone from './components/cyclone/cyclone.vue'
-import FacebookLogin from './components/facebooklogin/facebooklogin.vue'
+import Signup from './components/signup/signup.vue'
+import Login from './components/login/login.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -14,13 +16,18 @@ export default new Router({
     // { path: '/', name: 'home', component: Home },
     // { path: '/about', name: 'about', component: () => import(/* webpackChunkName: "about" */ './views/About.vue') },
     {
-      path: '/',
+      path: '/welcome',
       component: Navbar,
       children: [
-        { path: '/login', component: FacebookLogin },
-        { path: '/esp', component: Esp },
-        { path: '/cyclone', component: Cyclone }
+        { path: 'esp/:id', component: Esp },
+        { path: 'cyclone/:id', component: Cyclone }
       ]
+    },
+    {
+      path: '/login', component: Login
+    },
+    {
+      path: '/signup', component: Signup
     }
   ]
 })

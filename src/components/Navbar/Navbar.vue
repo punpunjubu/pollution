@@ -71,6 +71,7 @@ export default {
     return {
       dialog: false,
       drawer: null,
+      userId: '',
       image: '/assets/logo.png',
       items: [
         {
@@ -80,8 +81,8 @@ export default {
           text: 'ออกแบบ',
           model: false,
           children: [
-            { icon: 'add', text: 'Cyclone', link: '/cyclone' },
-            { icon: 'add', text: 'ESP', link: '/esp' }
+            { icon: 'add', text: 'Cyclone', link: `/welcome/cyclone/${this.userId}` },
+            { icon: 'add', text: 'ESP', link: `/welcome/esp/${this.userId}` }
           ]
         },
         { icon: 'import_contacts', text: 'ผู้ใช้ใหม่', link: '/calendar_counter' },
@@ -101,8 +102,23 @@ export default {
   methods: {
     goPage (link) {
       this.$router.push(link)
+    },
+    payload () {
+      const token = localStorage.getItem('token_pollution').split('.')[1]
+      return this.decode(token)
+    },
+    decode (token) {
+      const decode = (JSON.parse(atob(token)))
+      const sub = decode.sub
+      // eslint-disable-next-line no-console
+      console.log('sub', this.sub)
+      return sub
     }
-
+  },
+  created () {
+    this.userId = this.payload()
+    // eslint-disable-next-line no-console
+    console.log('id', this.userId)
   }
 }
 </script>
