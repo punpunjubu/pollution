@@ -1,7 +1,7 @@
 <template>
   <v-card
     class="mx-auto"
-    style="max-width: 500px;"
+    style="max-width: 600px;"
   >
     <v-system-bar
       color="deep-purple darken-4"
@@ -12,7 +12,8 @@
       <v-icon
         class="ml-1"
         small
-      >mdi-circle</v-icon>
+      >mdi-circle
+      </v-icon>
       <v-icon
         class="ml-1"
         small
@@ -51,10 +52,9 @@
       ></v-text-field>
       <v-text-field
       v-model="password"
-      :rules="[rules.password, rules.length(6)]"
+      :rules="[rules.password]"
       box
       color="deep-purple"
-      counter="6"
       label="Password"
       style="min-height: 96px"
       type="password"

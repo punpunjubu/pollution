@@ -527,7 +527,6 @@
                   </v-form>
                 </v-card-text>
               </v-flex>
-              <v-btn color="primary" @click="testsave();">บันทึก</v-btn>
             </v-layout>
           </v-card>
         </v-flex>
@@ -575,7 +574,7 @@
                       </v-layout>
                       <v-flex xs2 sm2 md2 lg2 xl2 style="text-md-right">
                         <v-btn color="primary" @click="push_attribute()">เพิ่มแถว</v-btn>
-                        <v-btn color="primary" @click="caldatable()">testdata</v-btn>
+                        <v-btn color="primary" @click="testsave();">บันทึก</v-btn>
                       </v-flex>
                       <!-- <pre>{{fieldArray}}</pre>
                       <pre>{{sizemin_cal}}</pre>
@@ -716,6 +715,17 @@ export default {
     }
   },
   methods: {
+    payload () {
+      const token = localStorage.getItem('token_pollution').split('.')[1]
+      return this.decode(token)
+    },
+    decode (token) {
+      const decode = (JSON.parse(atob(token)))
+      const sub = decode.sub
+      // eslint-disable-next-line no-console
+      console.log('sub', sub)
+      return sub
+    },
     push_attribute () {
       this.fieldArray.push(this.Attribute)
       this.Attribute = {}
@@ -872,6 +882,7 @@ export default {
     testsave () {
       if (confirm('Are you sure you want to save?')) {
         var textSource = {
+          user_id: this.payload(),
           type_id: this.type_id,
           diameter: this.diameter,
           d: this.D,
@@ -895,11 +906,13 @@ export default {
           hv: this.Hv,
           delta_p: this.deltaP,
           winput: this.wf,
-          delta_h2o: this.water
+          delta_h2o: this.water,
+          percent_collection: this.fieldArray
         }
         this.axios.post(process.env.VUE_APP_PATH + '/cyclone', textSource).then((response) => {
           if (response.data['status'] === 'successful') {
             alert('eieie')
+            this.$router.push((`/welcome/cyclone_result/${this.payload()}`))
           } else {
             // console.log('response', response)
             alert('maieieie')

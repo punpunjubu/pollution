@@ -81,8 +81,8 @@ export default {
           text: 'ออกแบบ',
           model: false,
           children: [
-            { icon: 'add', text: 'Cyclone', link: `/welcome/cyclone/${this.userId}` },
-            { icon: 'add', text: 'ESP', link: `/welcome/esp/${this.userId}` }
+            { icon: 'add', text: 'Cyclone', link: `/welcome/cyclone/${this.payload()}` },
+            { icon: 'add', text: 'ESP', link: `/welcome/esp/${this.payload()}` }
           ]
         },
         { icon: 'import_contacts', text: 'ผู้ใช้ใหม่', link: '/calendar_counter' },
@@ -111,7 +111,7 @@ export default {
       const decode = (JSON.parse(atob(token)))
       const sub = decode.sub
       // eslint-disable-next-line no-console
-      console.log('sub', this.sub)
+      console.log('sub', sub)
       return sub
     }
   },

@@ -1,7 +1,7 @@
 <template>
   <v-card
     class="mx-auto"
-    style="max-width: 500px;"
+    style="max-width: auto;"
   >
     <v-system-bar
       color="deep-purple darken-4"
@@ -57,10 +57,9 @@
       ></v-text-field>
       <v-text-field
       v-model="password"
-      :rules="[rules.password, rules.length(6)]"
+      :rules="[rules.password]"
       box
       color="deep-purple"
-      counter="6"
       label="Password"
       style="min-height: 96px"
       type="password"
@@ -70,7 +69,6 @@
       :rules="[rules.repassword]"
       box
       color="deep-purple"
-      counter="6"
       label="Confirm password"
       style="min-height: 96px"
       type="password"
@@ -172,7 +170,11 @@ export default {
       }
       this.axios.post(process.env.VUE_APP_PATH + '/api/signup', form).then((response) => {
         // eslint-disable-next-line no-console
-        console.log('response', response)
+        // console.log('response', response)
+        if (response.status === 200) {
+          alert('ลงทะเบียนสำเร็จ กรุณา Login เข้าสู่ระบบอีกครั้ง')
+          this.$router.push((`/login`))
+        }
       })
     }
   }
