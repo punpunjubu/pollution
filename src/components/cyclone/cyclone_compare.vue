@@ -1,29 +1,44 @@
 <template lang="html">
   <v-container grid-list-xs,sm,md,lg,xl>
-    <v-layout row wrap>
-      <v-flex xs12 sm12 md12 lg12 xl12>
-        <v-container grid-list-xs,sm,md,lg,xl>
-          <v-layout row wrap>
-            <v-flex xs12 sm12 md12 lg12 xl12>
-              <v-data-table
-              :headers="headers"
-              :items="sum_collection"
-              class="elevation-1"
-              >
-              <template slot="items" slot-scope="props">
-                <td class="text-xs-left">{{ props.item.cyclone_id }}</td>
-                <td class="text-xs-left">{{ props.item.type_name }}</td>
-                <td class="text-xs-left">{{ props.item.diameter }}</td>
-                <td class="text-xs-left">{{ props.item.sum_njmj }}</td>
-                <td class="text-xs-left">{{ props.item.winput }}</td>
-                <td class="text-xs-left">{{ props.item.delta_h2o }}</td>
-              </template>
-              </v-data-table>
-            </v-flex>
-          </v-layout>
-        </v-container>
-      </v-flex>
-    </v-layout>
+    <v-card>
+      <v-layout row wrap>
+        <v-flex xs12 sm12 md12 lg12 xl12 >
+          <v-card-text>
+            <v-container grid-list-xs,sm,md,lg,xl>
+              <v-layout row wrap>
+                <v-flex xs12 sm12 md12 lg12 xl12>
+                  <h1>
+                    Compare
+                  </h1>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-card-text>
+        </v-flex>
+        <v-flex xs12 sm12 md12 lg12 xl12>
+          <v-container grid-list-xs,sm,md,lg,xl>
+            <v-layout row wrap>
+              <v-flex xs12 sm12 md12 lg12 xl12>
+                <v-data-table
+                :headers="headers"
+                :items="sum_collection"
+                class="elevation-1"
+                >
+                <template slot="items" slot-scope="props">
+                  <td class="text-xs-left">{{ props.item.cyclone_id }}</td>
+                  <td class="text-xs-left">{{ props.item.type_name }}</td>
+                  <td class="text-xs-left">{{ props.item.diameter }}</td>
+                  <td class="text-xs-left">{{ props.item.sum_njmj }}</td>
+                  <td class="text-xs-left">{{ props.item.winput }}</td>
+                  <td class="text-xs-left">{{ props.item.delta_h2o }}</td>
+                </template>
+                </v-data-table>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-flex>
+      </v-layout>
+    </v-card>
   </v-container>
 </template>
 

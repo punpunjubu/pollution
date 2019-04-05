@@ -3,6 +3,21 @@
     <v-layout row wrap>
       <v-flex xs12 sm12 md12 lg12 xl12 >
         <v-card>
+          <v-layout row wrap>
+            <v-flex xs12 sm12 md12 lg12 xl12 >
+              <v-card-text>
+                <v-container grid-list-xs,sm,md,lg,xl>
+                  <v-layout row wrap>
+                    <v-flex xs12 sm12 md12 lg12 xl12>
+                      <h1>
+                        Result
+                      </h1>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+              </v-card-text>
+            </v-flex>
+          </v-layout>
           <v-layout row wrap v-for="item in collection" :key="item.cyclone_id">
             <v-flex xs12 sm12 md12 lg12 xl12 >
                 <v-card-text>
@@ -208,11 +223,30 @@
                   </v-container>
               </v-card-text>
               <v-card-text v-for="item2 in item.sum_percent_collection" :key="item2.cyclone_sumation">
-                <p>sumation of njmj: {{item2.cyclone_sumation}}</p>
+                <v-container grid-list-xs,sm,md,lg,xl>
+                  <v-layout row wrap>
+                    <v-flex xs12 sm12 md12 lg12 xl12>
+                      <p>Sumation of njmj: {{item2.cyclone_sumation}}</p>
+                    </v-flex>
+                  </v-layout>
+                  <hr>
+                </v-container>
               </v-card-text>
             </v-flex>
           </v-layout>
-          <v-btn class="float-right" color="primary" @click="tocompare()">comparation</v-btn>
+          <v-layout row wrap>
+            <v-flex  xs12 sm12 md12 lg12 xl12>
+              <v-card-text>
+                <v-container grid-list-xs,sm,md,lg,xl>
+                  <v-layout row wrap>
+                    <v-flex xs12 sm12 md12 lg12 xl12 style="text-align: center;">
+                      <v-btn style="width: 100%" color="purple darken-1" @click="tocompare()">Compare</v-btn>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+              </v-card-text>
+            </v-flex>
+          </v-layout>
         </v-card>
       </v-flex>
     </v-layout>
@@ -231,7 +265,7 @@ export default {
         { text: 'dpj/dpc', align: 'left', sortable: false },
         { text: 'nj', align: 'left', sortable: false },
         { text: 'mj%', align: 'left', sortable: false },
-        { text: 'Percent Collected njmj%%', align: 'left', sortable: false }
+        { text: 'Percent Collected njmj%', align: 'left', sortable: false }
       ],
       collection: [],
       testka: [
