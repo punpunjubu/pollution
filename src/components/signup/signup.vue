@@ -1,140 +1,123 @@
 <template>
-  <v-card
-    class="mx-auto"
-    style="max-width: auto;"
-  >
-    <v-system-bar
-      color="deep-purple darken-4"
-      dark
+  <v-app light>
+    <v-card
+
+      style="max-width: auto; height:100%"
     >
-      <v-spacer></v-spacer>
-      <v-icon small>mdi-square</v-icon>
-      <v-icon
-        class="ml-1"
-        small
-      >mdi-circle</v-icon>
-      <v-icon
-        class="ml-1"
-        small
-      >mdi-triangle</v-icon>
-    </v-system-bar>
-    <v-toolbar
-      color="deep-purple accent-4"
-      cards
-      dark
-      flat
-    >
-      <v-btn icon>
-        <v-icon>mdi-arrow-left</v-icon>
-      </v-btn>
-      <v-card-title class="title font-weight-regular">Sign up</v-card-title>
-      <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
-    </v-toolbar>
-    <v-form
-      ref="form"
-      v-model="form"
-      class="pa-3 pt-4"
-    >
-      <v-text-field
-      v-model="name"
-      box
-      color="deep-purple"
-      label="Name"
-      ></v-text-field>
-      <v-text-field
-        v-model="email"
-        :rules="[rules.email]"
+      <v-system-bar
+        color="yellow lighten-5"
+        dark
+      >
+      </v-system-bar>
+      <v-toolbar
+        color="yellow darken-2"
+        cards
+        dark
+        flat
+      >
+        <v-card-title class="title font-weight-regular" style="padding-left: 0px;">Sign up</v-card-title>
+        <v-spacer></v-spacer>
+      </v-toolbar>
+      <v-form
+        ref="form"
+        v-model="form"
+        class="pa-3 pt-4"
+      >
+        <v-text-field
+        v-model="name"
         box
         color="deep-purple"
-        label="Email address"
-        type="email"
-      ></v-text-field>
-      <v-text-field
-      v-model="password"
-      :rules="[rules.password]"
-      box
-      color="deep-purple"
-      label="Password"
-      style="min-height: 96px"
-      type="password"
-      ></v-text-field>
-      <v-text-field
-      v-model="password_confirmation"
-      :rules="[rules.repassword]"
-      box
-      color="deep-purple"
-      label="Confirm password"
-      style="min-height: 96px"
-      type="password"
-      ></v-text-field>
-      <v-checkbox
-        v-model="agreement"
-        :rules="[rules.required]"
+        label="Name"
+        ></v-text-field>
+        <v-text-field
+          v-model="email"
+          :rules="[rules.email]"
+          box
+          color="deep-purple"
+          label="Email address"
+          type="email"
+        ></v-text-field>
+        <v-text-field
+        v-model="password"
+        :rules="[rules.password]"
+        box
         color="deep-purple"
+        label="Password"
+        style="min-height: 96px"
+        type="password"
+        ></v-text-field>
+        <v-text-field
+        v-model="password_confirmation"
+        :rules="[rules.repassword]"
+        box
+        color="deep-purple"
+        label="Confirm password"
+        style="min-height: 96px"
+        type="password"
+        ></v-text-field>
+        <v-checkbox
+          v-model="agreement"
+          :rules="[rules.required]"
+          color="deep-purple"
+        >
+          <template v-slot:label>
+            I agree to the&nbsp;
+            <a href="#" @click.stop.prevent="dialog = true">Terms of Service</a>
+            &nbsp;and&nbsp;
+            <a href="#" @click.stop.prevent="dialog = true">Privacy Policy</a>*
+          </template>
+        </v-checkbox>
+      </v-form>
+      <v-divider></v-divider>
+      <v-card-actions>
+        <v-btn
+          flat
+          @click="$refs.form.reset()"
+        >
+          Clear
+        </v-btn>
+        <v-spacer></v-spacer>
+        <v-btn
+          :disabled="!form"
+          :loading="isLoading"
+          class="white--text"
+          color="deep-purple accent-4"
+          depressed
+          @click="onSubmit()"
+        >Submit</v-btn>
+      </v-card-actions>
+      <v-dialog
+        v-model="dialog"
+        absolute
+        max-width="400"
+        persistent
       >
-        <template v-slot:label>
-          I agree to the&nbsp;
-          <a href="#" @click.stop.prevent="dialog = true">Terms of Service</a>
-          &nbsp;and&nbsp;
-          <a href="#" @click.stop.prevent="dialog = true">Privacy Policy</a>*
-        </template>
-      </v-checkbox>
-    </v-form>
-    <v-divider></v-divider>
-    <v-card-actions>
-      <v-btn
-        flat
-        @click="$refs.form.reset()"
-      >
-        Clear
-      </v-btn>
-      <v-spacer></v-spacer>
-      <v-btn
-        :disabled="!form"
-        :loading="isLoading"
-        class="white--text"
-        color="deep-purple accent-4"
-        depressed
-        @click="onSubmit()"
-      >Submit</v-btn>
-    </v-card-actions>
-    <v-dialog
-      v-model="dialog"
-      absolute
-      max-width="400"
-      persistent
-    >
-      <v-card>
-        <v-card-title class="headline grey lighten-3">Legal</v-card-title>
-        <v-card-text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </v-card-text>
-        <v-divider></v-divider>
-        <v-card-actions>
-          <v-btn
-            flat
-            @click="agreement = false, dialog = false"
-          >
-            No
-          </v-btn>
-          <v-spacer></v-spacer>
-          <v-btn
-            class="white--text"
-            color="deep-purple accent-4"
-            @click="agreement = true, dialog = false"
-          >
-            Yes
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </v-card>
+        <v-card>
+          <v-card-title class="headline grey lighten-3">Legal</v-card-title>
+          <v-card-text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </v-card-text>
+          <v-divider></v-divider>
+          <v-card-actions>
+            <v-btn
+              flat
+              @click="agreement = false, dialog = false"
+            >
+              No
+            </v-btn>
+            <v-spacer></v-spacer>
+            <v-btn
+              class="white--text"
+              color="deep-purple accent-4"
+              @click="agreement = true, dialog = false"
+            >
+              Yes
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-card>
+  </v-app>
 </template>
 
 <script>

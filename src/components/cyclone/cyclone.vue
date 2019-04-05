@@ -73,32 +73,32 @@
                 <v-form>
                   <v-container grid-list-xs,sm,md,lg,xl>
                     <v-layout row wrap>
-                      <v-flex xs12 sm12 md6 lg6 xl6>
+                      <v-flex xs12 sm12 md12 lg12 xl12>
                         <v-container grid-list-xs,sm,md,lg,xl>
                           <v-layout row wrap>
                             <v-flex xs12 sm12 md12 lg12 xl12>
-                              <v-btn class="widthka" color="#C8C8C8" @click="heightefficiency1(); type_id = 1">Height Efficiency 1</v-btn>
+                              <v-btn class="widthka" color="#E1BEE7" @click="heightefficiency1(); type_id = 1">Height Efficiency 1 (Stairmand)</v-btn>
                             </v-flex>
                             <v-flex xs12 sm12 md12 lg12 xl12>
-                              <v-btn class="widthka" color="#909090" @click="heightefficiency2(); type_id = 2">Height Efficiency 2</v-btn>
+                              <v-btn class="widthka" color="#E1BEE7" @click="heightefficiency2(); type_id = 2">Height Efficiency 2 (Swift)</v-btn>
                             </v-flex>
                             <v-flex xs12 sm12 md12 lg12 xl12>
-                              <v-btn class="widthka" color="#696969" @click="conventional3(); type_id = 3">Conventional 3</v-btn>
+                              <v-btn class="widthka" color="#CE93D8" @click="conventional3(); type_id = 3">Conventional 3 (Lapple)</v-btn>
                             </v-flex>
                             <v-flex xs12 sm12 md12 lg12 xl12>
-                              <v-btn class="widthka" color="#505050" @click="conventional4(); type_id = 4">Conventional 4</v-btn>
+                              <v-btn class="widthka" color="#BA68C8" @click="conventional4(); type_id = 4">Conventional 4 (Swift)</v-btn>
                             </v-flex>
                             <v-flex xs12 sm12 md12 lg12 xl12>
-                              <v-btn class="widthka" color="#282828" @click="heighthroughput5(); type_id = 5">Heigh Throughput 5</v-btn>
+                              <v-btn class="widthka" color="#AB47BC" @click="heighthroughput5(); type_id = 5">High Troughput 5 (Stairmand)</v-btn>
                             </v-flex>
                             <v-flex xs12 sm12 md12 lg12 xl12>
-                              <v-btn class="widthka" color="#000000" @click="heighthroughput6(); type_id = 6">Heigh Throughput 6</v-btn>
+                              <v-btn class="widthka" color="#8E24AA" @click="heighthroughput6(); type_id = 6">Height Throughput 6 (Swift)</v-btn>
                             </v-flex>
                           </v-layout>
                         </v-container>
                       </v-flex>
-                      <v-flex xs12 sm12 md6 lg6 xl6>
-                        <v-form>
+                      <v-flex xs12 sm12 md12 lg12 xl12>
+                        <v-form class="padleft">
                           <v-container grid-list-xs,sm,md,lg,xl>
                             <v-layout row wrap>
                               <v-flex xs4 sm4 md4 xl4 lg4>
@@ -573,8 +573,9 @@
                         </v-flex>
                       </v-layout>
                       <v-flex xs2 sm2 md2 lg2 xl2 style="text-md-right">
-                        <v-btn color="primary" @click="push_attribute()">เพิ่มแถว</v-btn>
-                        <v-btn color="primary" @click="testsave();">บันทึก</v-btn>
+                        <v-btn color="purple darken-1" @click="push_attribute()">ADD ROW</v-btn>
+                        <v-btn color="purple darken-1" @click="testsave();">SAVE</v-btn>
+                        <v-btn color="purple darken-1" v-if="showresult" @click="toresult();">RESULT</v-btn>
                       </v-flex>
                       <!-- <pre>{{fieldArray}}</pre>
                       <pre>{{sizemin_cal}}</pre>
@@ -629,6 +630,7 @@
 export default {
   data () {
     return {
+      showresult: false,
       type_id: null,
       diameter: null,
       bodydiameter: null,
@@ -911,14 +913,17 @@ export default {
         }
         this.axios.post(process.env.VUE_APP_PATH + '/cyclone', textSource).then((response) => {
           if (response.data['status'] === 'successful') {
-            alert('eieie')
-            this.$router.push((`/welcome/cyclone_result/${this.payload()}`))
+            alert('บันทึกผลสำเร็จ กรุณาเลือกคำนวณอีกครั้งหรือคลิกดูผลลัพท์')
+            this.showresult = true
           } else {
             // console.log('response', response)
             alert('maieieie')
           }
         })
       }
+    },
+    toresult () {
+      this.$router.push((`/welcome/cyclone_result/${this.payload()}`))
     }
   },
   computed: {
@@ -989,5 +994,8 @@ export default {
 }
 .fontspan {
   font-weight: 600;
+}
+.padleft {
+  padding-left: 24px !important;
 }
 </style>

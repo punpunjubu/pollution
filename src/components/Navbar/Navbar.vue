@@ -3,9 +3,9 @@
     <v-navigation-drawer v-model="drawer" class="tt" :clipped="$vuetify.breakpoint.lgAndUp" fixed app>
       <v-list dense>
         <div class="w-100 center-x center-y pa-4">
-          <img width="100%" :src="image" />
+          <!-- <img width="100%" :src="image" /> -->
         </div>
-        <v-divider></v-divider>
+        <!-- <v-divider></v-divider> -->
         <template v-for="item in items">
           <v-list-group v-if="item.children" v-model="item.model" :key="item.text" :prepend-icon="item.icon" append-icon="">
             <v-list-tile slot="activator">
@@ -43,7 +43,7 @@
         </template>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar class="navbar" :clipped-left="$vuetify.breakpoint.lgAndUp" dark app color="#A9A9A9" fixed>
+    <v-toolbar class="navbar" :clipped-left="$vuetify.breakpoint.lgAndUp" dark app color="#fbc02d" fixed>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title class="white--text">Title</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -124,7 +124,7 @@ export default {
 </script>
 <style>
 .menu_active {
-  color: #A9A9A9;
+  color:  #fbc02d;
 }
 .navbar .btn--icon div.btn__content:before {
   width: 36px !important;

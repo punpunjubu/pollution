@@ -126,7 +126,7 @@
                         ></v-text-field>
                       </v-flex>
                       <v-flex xs6 sm6 md2 lg2 xl2>
-                        <header class="dis">Number of ducts</header>
+                        <header >Number of ducts</header>
                       </v-flex>
                       <v-flex xs6 sm6 md10 lg10 xl10>
                         <v-text-field
@@ -160,7 +160,7 @@
                         ></v-text-field>
                       </v-flex>
                       <v-flex xs6 sm6 md2 lg2 xl2 >
-                        <header class="dis">Number of mechanical field</header>
+                        <header >Number of mechanical field</header>
                       </v-flex>
                       <v-flex  xs6 sm6 md10 lg10 xl10 >
                         <v-text-field
@@ -172,7 +172,7 @@
                         ></v-text-field>
                       </v-flex>
                       <v-flex xs6 sm6 md2 lg2 xl2 >
-                        <header class="dis">Actual collection area</header>
+                        <header >Actual collection area</header>
                       </v-flex>
                       <v-flex  xs6 sm6 md10 lg10 xl10 >
                         <v-text-field
@@ -199,7 +199,7 @@
       >
       </v-progress-linear>
 <v-flex xs12 sm12 md12 lg12 xl12 pt-3>
-  <v-card ref="form" color="#BDBDBD">
+  <v-card ref="form" >
     <v-layout row wrap>
       <v-flex xs12 md12 lg12 xl12 sm12>
         <v-card-text>
@@ -340,7 +340,7 @@
             ></v-text-field>
           </v-flex>
           <v-flex xs6 sm6 md2 lg2 xl2>
-            <header class="dis">The totle collection area</header>
+            <header >The totle collection area</header>
           </v-flex>
           <v-flex xs6 sm6 md10 lg10 xl10>
             <v-text-field
@@ -353,7 +353,7 @@
             ></v-text-field>
           </v-flex>
           <v-flex xs6 sm6 md2 lg2 xl2>
-            <header class="dis">The totle number of plate in the ESP</header>
+            <header >The totle number of plate in the ESP</header>
           </v-flex>
           <v-flex xs6 sm6 md10 lg10 xl10>
             <v-text-field
@@ -461,7 +461,7 @@ value="60"
             ></v-text-field>
           </v-flex>
           <v-flex xs6 sm6 md2 lg2 xl2>
-            <header class="dis">Number of bus section</header>
+            <header >Number of bus section</header>
           </v-flex>
           <v-flex xs6 sm6 md10 lg10 xl10>
             <v-text-field
@@ -485,7 +485,7 @@ value="60"
             ></v-text-field>
           </v-flex>
           <v-flex xs6 sm6 md2 lg2 xl2 >
-            <header class="dis">Charge on the partical</header>
+            <header >Charge on the partical</header>
           </v-flex>
           <v-flex  xs6 sm6 md10 lg10 xl10 >
             <v-text-field
@@ -511,7 +511,7 @@ value="75"
 >
 </v-progress-linear>
 <v-flex xs12 sm12 md12 lg12 xl12 pt-3>
-  <v-card ref="form" color="#BDBDBD">
+  <v-card ref="form">
     <v-layout row wrap>
       <v-flex xs12 md12 lg12 xl12 sm12>
         <v-card-text>
@@ -601,7 +601,7 @@ value="75"
             ></v-text-field>
           </v-flex>
           <v-flex xs6 sm6 md2 lg2 xl2>
-            <header class="dis">Collection Efficiency</header>
+            <header >Collection Efficiency</header>
           </v-flex>
           <v-flex xs6 sm6 md10 lg10 xl10>
             <v-text-field
@@ -646,7 +646,7 @@ value="75"
             ></v-text-field>
           </v-flex>
           <v-flex xs6 sm6 md2 lg2 xl2>
-            <header class="dis">Calculate oveall area</header>
+            <header >Calculate oveall area</header>
           </v-flex>
           <v-flex xs6 sm6 md10 lg10 xl10>
             <v-text-field
@@ -762,7 +762,7 @@ value="75"
             ></v-text-field>
           </v-flex>
           <v-flex xs6 sm6 md2 lg2 xl2>
-            <header class="dis">Mass removed</header>
+            <header >Mass removed</header>
           </v-flex>
           <v-flex xs6 sm6 md10 lg10 xl10>
             <v-text-field
@@ -847,7 +847,7 @@ value="75"
                   <v-flex xs4 sm4 md4 lg4 xl4>
                     <p>{{bus_section}}</p>
                   </v-flex>
-                  <v-btn color="primary" @click="testA()">testln</v-btn>
+                  <v-btn color="primary" @click="testln()">testln</v-btn>
                 </v-layout>
               </v-container>
             </v-card>
@@ -949,7 +949,7 @@ export default {
       return [this.plate_height, this.plate_length].join()
     },
     total_collection_area_values () {
-      return [this.plate_height, this.plate_length, this.number_plates_parallel_esp, this.number_mechanical].join()
+      return [this.flow_rate, this.drift_velocity, this.efficiency_esp].join()
     },
     collection_efficiency_values () {
       return [this.corona_power, this.k].join()
@@ -981,7 +981,7 @@ export default {
       this.esp_height = this.ratio * this.plate_height
     },
     total_collection_area_values () {
-      this.total_collection_area = ((2 * this.plate_height * this.plate_length) * ((this.number_plates_parallel_esp * this.number_mechanical) - this.number_mechanical))
+      this.total_collection_area = (this.flow_rate / this.drift_velocity) * Math.log(1 / (1 - this.efficiency_esp))
       this.total_number_plate = Math.ceil((this.total_collection_area / (2 * this.plate_height * this.plate_length)) + (this.number_mechanical * 1))
     },
     divide_sections () {
