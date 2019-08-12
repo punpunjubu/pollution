@@ -89,11 +89,12 @@ export default {
         { icon: 'assignment_ind',
           'arrow': 'keyboard_arrow_down',
           'arrow-alt': 'keyboard_arrow_up',
-          text: 'ติตดต่อเรา',
+          text: 'รายการ',
           model: false,
           children: [
-            { icon: 'add', text: 'Developer', link: '/req_employee' },
-            { icon: 'add', text: 'Profressor', link: '/Permission2' }
+            { icon: 'add', text: 'Cyclone results', link: `/welcome/cyclone_result/${this.payload()}` },
+            { icon: 'add', text: 'Compare Cyclone', link: `/welcome/cyclone_compare/${this.payload()}` },
+            { icon: 'add', text: 'ESP results', link: `/welcome/esp_result/${this.payload()}` }
           ]
         }
       ]

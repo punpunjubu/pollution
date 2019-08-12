@@ -847,7 +847,7 @@ value="75"
                   <v-flex xs4 sm4 md4 lg4 xl4>
                     <p>{{bus_section}}</p>
                   </v-flex>
-                  <v-btn color="primary" @click="testln()">testln</v-btn>
+                  <v-btn color="primary" @click="save()">save</v-btn>
                 </v-layout>
               </v-container>
             </v-card>
@@ -924,13 +924,47 @@ export default {
     genColor (i) {
       return this.colors[i]
     },
-    testln () {
+    payload () {
+      const token = localStorage.getItem('token_pollution').split('.')[1]
+      return this.decode(token)
+    },
+    decode (token) {
+      const decode = (JSON.parse(atob(token)))
+      const sub = decode.sub
       // eslint-disable-next-line no-console
-      console.log('Math.E', Math.E)
-      const testln2 = (8000 / 6.8) * (Math.log(1 / (1 - 0.99)))
-      // eslint-disable-next-line no-console
-      console.log('testln2', testln2)
-      return testln2
+      console.log('sub', sub)
+      return sub
+    },
+    save () {
+      if (confirm('Are you sure you want to save this result?')) {
+        var textSource = {
+          user_id: this.payload(),
+          nd: this.duct_number,
+          nm: this.number_mechanical,
+          aa: this.actual_collection_area,
+          np: this.total_number_plate,
+          bs: this.bus_section,
+          cp: this.charge_partical,
+          ce: this.collection_efficiency,
+          ca: this.calculate_overall_area,
+          mr: this.mass_removed,
+          eh: this.esp_height,
+          ph: parseInt(this.plate_height, 10),
+          cw: parseInt(this.channel_width, 10),
+          sa: this.specific_collection_area,
+          es: parseInt(this.entrance_section_length, 10),
+          el: parseInt(this.exit_section_length, 10),
+          pl: this.plate_length
+        }
+        this.axios.post(process.env.VUE_APP_PATH + '/esp', textSource).then((response) => {
+          if (response.data['status'] === 'successful') {
+            alert('save sucessfull')
+            this.showresult = true
+          } else {
+            alert('save unsucessfull')
+          }
+        })
+      }
     },
     testA () {
       const testAA = (this.flow_rate / this.drift_velocity) * Math.log(1 / (1 - this.efficiency_esp))

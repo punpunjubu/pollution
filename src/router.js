@@ -3,6 +3,7 @@ import Router from 'vue-router'
 // import Home from './views/Home.vue'
 import Navbar from './components/Navbar/Navbar.vue'
 import Esp from './components/esp/esp.vue'
+import EspResult from './components/esp/esp_result.vue'
 import Cyclone from './components/cyclone/cyclone.vue'
 import Signup from './components/signup/signup.vue'
 import Home from './components/home/home.vue'
@@ -21,6 +22,7 @@ export default new Router({
       component: Navbar,
       children: [
         { path: 'esp/:id', component: Esp },
+        { path: 'esp_result/:id', component: EspResult },
         { path: 'cyclone/:id', component: Cyclone },
         { path: 'cyclone_result/:id', component: CycloneResult },
         { path: 'cyclone_compare/:id', component: CycloneCompare }
