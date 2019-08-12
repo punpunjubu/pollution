@@ -158,6 +158,9 @@ export default {
           alert('ลงทะเบียนสำเร็จ กรุณา Login เข้าสู่ระบบอีกครั้ง')
           this.$router.push((`/home`))
         }
+      },
+      (error) => {
+        alert(error.error)
       })
     }
   }

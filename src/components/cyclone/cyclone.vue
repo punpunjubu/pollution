@@ -726,15 +726,12 @@ export default {
     decode (token) {
       const decode = (JSON.parse(atob(token)))
       const sub = decode.sub
-      // eslint-disable-next-line no-console
-      console.log('sub', sub)
       return sub
     },
     push_attribute () {
       this.fieldArray.push(this.Attribute)
       this.Attribute = {}
       // eslint-disable-next-line no-console
-      console.log('fieldArray', this.fieldArray, 'Attribute', this.Attribute)
     },
     delete_file (index) {
       this.fieldArray.splice(index, 1)
@@ -756,22 +753,9 @@ export default {
         this.data_cal[i].mjj = this.mj_cal[i]
         this.percent_collected_cal[i] = (this.nj_cal[i] * this.mj_cal[i]).toFixed(3)
         this.data_cal[i].njmjj = this.percent_collected_cal[i]
-        // eslint-disable-next-line no-console
-        console.log('sizemin_cal', this.sizemin_cal, 'size_max_cal', this.size_max_cal)
-        // eslint-disable-next-line no-console
-        console.log('dpj_cal', this.dpj_cal)
-        // eslint-disable-next-line no-console
-        console.log('dpjdpc_cal', this.dpjdpc_cal)
-        // eslint-disable-next-line no-console
-        console.log('nj_cal', this.nj_cal)
-        // eslint-disable-next-line no-console
-        console.log('mj_cal', this.mj_cal)
-        // eslint-disable-next-line no-console
-        console.log('percent_collected_cal', this.percent_collected_cal)
         this.cal_arttribute = {}
       }
       // eslint-disable-next-line no-console
-      console.log('this.data_cal', this.data_cal)
       this.sumation()
     },
     sumation () {
@@ -779,8 +763,6 @@ export default {
       for (let i = 0; i < this.percent_collected_cal.length; i++) {
         this.sum = ((this.sum * 1) + (this.percent_collected_cal[i] * 1))
       }
-      // eslint-disable-next-line no-console
-      console.log('this.sum', this.sum)
       var aaa = [
         this.checkdata = true,
         this.mama = this.data_cal
@@ -872,15 +854,12 @@ export default {
           alert('eieie')
         } else {
           // console.log('response', response)
-          alert('maieieie')
         }
       })
     },
     testget () {
-      alert('ggg')
       this.axios.get(process.env.VUE_APP_PATH + '/auth/facebook').then((response) => {
         // eslint-disable-next-line no-console
-        console.log('response', response)
       })
     },
     testsave () {
@@ -919,7 +898,6 @@ export default {
             this.showresult = true
           } else {
             // console.log('response', response)
-            alert('maieieie')
           }
         })
       }

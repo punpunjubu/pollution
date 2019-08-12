@@ -212,7 +212,6 @@ export default {
       }
       this.axios.post(process.env.VUE_APP_PATH + '/api/login', form).then((response) => {
         // eslint-disable-next-line no-console
-        console.log('response', response)
         if (response.status === 200) {
           localStorage.setItem('token_pollution', response.data.access_token)
           const id = this.payload(response.data.access_token)
@@ -221,7 +220,6 @@ export default {
       },
       (error) => {
         // eslint-disable-next-line no-console
-        console.log('error', error.error)
         alert(error.error)
       })
     },

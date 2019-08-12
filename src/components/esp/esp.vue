@@ -932,7 +932,6 @@ export default {
       const decode = (JSON.parse(atob(token)))
       const sub = decode.sub
       // eslint-disable-next-line no-console
-      console.log('sub', sub)
       return sub
     },
     save () {
@@ -959,17 +958,12 @@ export default {
         this.axios.post(process.env.VUE_APP_PATH + '/esp', textSource).then((response) => {
           if (response.data['status'] === 'successful') {
             alert('save sucessfull')
-            this.showresult = true
+            this.$router.push((`/welcome/esp_result/${this.payload()}`))
           } else {
             alert('save unsucessfull')
           }
         })
       }
-    },
-    testA () {
-      const testAA = (this.flow_rate / this.drift_velocity) * Math.log(1 / (1 - this.efficiency_esp))
-      // eslint-disable-next-line no-console
-      console.log('testAA', testAA)
     }
   },
   computed: {

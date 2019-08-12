@@ -60,12 +60,10 @@ export default {
   created () {
     this.axios.get(process.env.VUE_APP_PATH + `/cyclone_comparation/${this.payload()}`).then((response) => {
       // eslint-disable-next-line no-console
-      console.log('response', response.data.data)
       this.sum_collection = response.data.data
     },
     (error) => {
       // eslint-disable-next-line no-console
-      console.log('error', error.error)
       alert(error.error)
     })
   },
@@ -78,7 +76,6 @@ export default {
       const decode = (JSON.parse(atob(token)))
       const sub = decode.sub
       // eslint-disable-next-line no-console
-      console.log('sub', sub)
       return sub
     }
   }

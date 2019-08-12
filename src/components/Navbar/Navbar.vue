@@ -112,14 +112,11 @@ export default {
       const decode = (JSON.parse(atob(token)))
       const sub = decode.sub
       // eslint-disable-next-line no-console
-      console.log('sub', sub)
       return sub
     }
   },
   created () {
     this.userId = this.payload()
-    // eslint-disable-next-line no-console
-    console.log('id', this.userId)
   }
 }
 </script>
