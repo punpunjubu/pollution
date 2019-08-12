@@ -156,7 +156,7 @@ export default {
         // console.log('response', response)
         if (response.status === 200) {
           alert('ลงทะเบียนสำเร็จ กรุณา Login เข้าสู่ระบบอีกครั้ง')
-          this.$router.push((`/login`))
+          this.$router.push((`/home`))
         }
       })
     }

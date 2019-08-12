@@ -8,6 +8,8 @@
               <v-card-text>
                 <v-container grid-list-xs,sm,md,lg,xl>
                   <v-layout row wrap>
+                    <button type="button" class="btn btn-primary">Primary</button>
+
                     <v-flex  xs10 sm10 lg10 xl10 md10>
                       <h1>Cyclone</h1>
                     </v-flex>

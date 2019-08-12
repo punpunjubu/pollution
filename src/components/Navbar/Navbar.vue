@@ -85,7 +85,7 @@ export default {
             { icon: 'add', text: 'ESP', link: `/welcome/esp/${this.payload()}` }
           ]
         },
-        { icon: 'import_contacts', text: 'ผู้ใช้ใหม่', link: '/calendar_counter' },
+        // { icon: 'import_contacts', text: 'ผู้ใช้ใหม่', link: '/calendar_counter' },
         { icon: 'assignment_ind',
           'arrow': 'keyboard_arrow_down',
           'arrow-alt': 'keyboard_arrow_up',
@@ -131,7 +131,7 @@ export default {
   height: 36px !important;
 }
 .btn .btn__content .icon, .btn .btn__content .avatar  {
-  padding-left: 4px!important;
+  /* padding-left: 4px!important; */
 }
 .toolbar .toolbar__content>:not(.btn):not(.menu):first-child:not(:only-child), .toolbar .toolbar__extension>:not(.btn):not(.menu):first-child:not(:only-child) {
   margin-left: 5px !important;
